@@ -6,8 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@include file="/jsp/common/head.jsp"%>
+         pageEncoding="UTF-8" %>
+<%@include file="/jsp/common/head.jsp" %>
 
 <div class="right">
     <div class="location">
@@ -45,16 +45,16 @@
             </div>
             <div>
                 <label for="providerId">供应商：</label>
-                <input type="hidden" value="${bill.providerId }" id="pid" />
+                <input type="hidden" value="${bill.providerId }" id="pid"/>
                 <select name="providerId" id="providerId">
                 </select>
                 <font color="red"></font>
             </div>
             <div>
-                <label >是否付款：</label>
+                <label>是否付款：</label>
                 <c:if test="${bill.isPayment == 1 }">
                     <input type="radio" name="isPayment" value="1" checked="checked">未付款
-                    <input type="radio" name="isPayment" value="2" >已付款
+                    <input type="radio" name="isPayment" value="2">已付款
                 </c:if>
                 <c:if test="${bill.isPayment == 2 }">
                     <input type="radio" name="isPayment" value="1">未付款
@@ -63,7 +63,7 @@
             </div>
             <div class="providerAddBtn">
                 <input type="button" name="save" id="save" value="保存">
-                <input type="button" id="back" name="back" value="返回" >
+                <input type="button" id="back" name="back" value="返回">
             </div>
         </form>
     </div>

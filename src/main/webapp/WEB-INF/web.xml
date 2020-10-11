@@ -74,6 +74,16 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>ProviderServlet</servlet-name>
+        <servlet-class>com.kuang.servlet.provider.ProviderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProviderServlet</servlet-name>
+        <url-pattern>/jsp/provider.do</url-pattern>
+    </servlet-mapping>
+
+
     <!--    session的过期时间60分钟, 真是业务需求-->
     <session-config>
         <session-timeout>60</session-timeout>

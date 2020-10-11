@@ -6,8 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@include file="/jsp/common/head.jsp"%>
+         pageEncoding="UTF-8" %>
+<%@include file="/jsp/common/head.jsp" %>
 
 <div class="right">
     <div class="location">
@@ -25,7 +25,8 @@
                 <c:if test="${providerList != null }">
                     <option value="0">--请选择--</option>
                     <c:forEach var="provider" items="${providerList}">
-                        <option <c:if test="${provider.id == queryProviderId }">selected="selected"</c:if>
+                        <option
+                                <c:if test="${provider.id == queryProviderId }">selected="selected"</c:if>
                                 value="${provider.id}">${provider.proName}</option>
                     </c:forEach>
                 </c:if>
@@ -38,7 +39,7 @@
                 <option value="2" ${queryIsPayment == 2 ? "selected=\"selected\"":"" }>已付款</option>
             </select>
 
-            <input	value="查 询" type="submit" id="searchbutton">
+            <input value="查 询" type="submit" id="searchbutton">
             <a href="${pageContext.request.contextPath }/jsp/billadd.jsp">添加订单</a>
         </form>
     </div>
@@ -79,9 +80,12 @@
 					</span>
                 </td>
                 <td>
-                    <span><a class="viewBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
-                    <span><a class="modifyBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
-                    <span><a class="deleteBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
+                    <span><a class="viewBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img
+                            src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
+                    <span><a class="modifyBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img
+                            src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
+                    <span><a class="deleteBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img
+                            src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
                 </td>
             </tr>
         </c:forEach>
