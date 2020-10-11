@@ -93,14 +93,14 @@
 <div class="zhezhao"></div>
 <div class="remove" id="removeUse">
     <div class="removerChid">
-        <h2>提示</h2>
-        <div class="removeMain">
-            <p>你确定要删除该用户吗？</p>
-            <a href="#" id="yes">确定</a>
-            <a href="#" id="no">取消</a>
-        </div>
-    </div>
+		<h2>提示</h2>
+		<div class="removeMain">
+			<p>你确定要删除该用户吗？</p>
+			<a href="#" id="yes">确定</a>
+			<a href="#" id="no">取消</a>
+		</div>
+	</div>
 </div>
 
 <%@include file="/jsp/common/foot.jsp" %>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/userlist.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/userlist.js" charset="utf-8"></script>
