@@ -6,8 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@include file="/jsp/common/head.jsp"%>
+         pageEncoding="UTF-8" %>
+<%@include file="/jsp/common/head.jsp" %>
 
 <div class="right">
     <div class="location">
@@ -40,7 +40,7 @@
                 <font color="red"></font>
             </div>
             <div>
-                <label >用户性别：</label>
+                <label>用户性别：</label>
                 <select name="gender" id="gender">
                     <option value="1" selected="selected">男</option>
                     <option value="2">女</option>
@@ -59,10 +59,10 @@
             </div>
             <div>
                 <label for="address">用户地址：</label>
-                <input name="address" id="address"  value="">
+                <input name="address" id="address" value="">
             </div>
             <div>
-                <label >用户角色：</label>
+                <label>用户角色：</label>
                 <!-- 列出所有的角色分类 -->
                 <select name="userRole" id="userRole">
                     <option value="1" selected="selected">系统管理员</option>
@@ -72,8 +72,8 @@
                 <font color="red"></font>
             </div>
             <div class="providerAddBtn">
-                <input type="button" name="add" id="add" value="保存" >
-                <input type="button" id="back" name="back" value="返回" >
+                <input type="button" name="add" id="add" value="保存">
+                <input type="button" id="back" name="back" value="返回">
             </div>
         </form>
     </div>

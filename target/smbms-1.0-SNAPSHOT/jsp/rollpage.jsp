@@ -20,15 +20,16 @@
 				</c:if>
 				<c:if test="${param.currentPageNo < param.totalPageCount }">
 					<a href="javascript:page_nav(document.forms[0],${param.currentPageNo+1 });">下一页</a>
-					<a href="javascript:page_nav(document.forms[0],${param.totalPageCount });">最后一页</a>
-				</c:if>
-				&nbsp;&nbsp;
-			</ul>
-		 <span class="page-go-form"><label>跳转至</label>
-	     <input type="text" name="inputPage" id="inputPage" class="page-key" />页
-	     <button type="button" class="page-btn" onClick='jump_to(document.forms[0],document.getElementById("inputPage").value)'>GO</button>
+                    <a href="javascript:page_nav(document.forms[0],${param.totalPageCount });">最后一页</a>
+                </c:if>
+                &nbsp;&nbsp;
+            </ul>
+            <span class="page-go-form"><label>跳转至</label>
+	     <input type="text" name="inputPage" id="inputPage" class="page-key"/>页
+	     <button type="button" class="page-btn"
+                 onClick='jump_to(document.forms[0],document.getElementById("inputPage").value)'>GO</button>
 		</span>
-		</div> 
+        </div>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/rollpage.js" charset="utf-8"></script>
 </html>

@@ -52,8 +52,8 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/jsp/logout.do</url-pattern>
     </servlet-mapping>
-    
-    
+
+
     <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>com.kuang.servlet.user.UserServlet</servlet-class>
@@ -64,9 +64,19 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
     </servlet-mapping>
 
 
-<!--    session的过期时间60分钟, 真是业务需求-->
+    <servlet>
+        <servlet-name>BillServlet</servlet-name>
+        <servlet-class>com.kuang.servlet.bill.BillServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BillServlet</servlet-name>
+        <url-pattern>/jsp/bill.do</url-pattern>
+    </servlet-mapping>
+
+
+    <!--    session的过期时间60分钟, 真是业务需求-->
     <session-config>
         <session-timeout>60</session-timeout>
     </session-config>
-    
+
 </web-app>
