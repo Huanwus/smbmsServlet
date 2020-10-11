@@ -45,9 +45,11 @@ public class UserServlet extends HttpServlet {
     // 重点与难点
     public void query(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
        //查询用户列表
+        // 从前端获取的
         String queryUserName = req.getParameter("queryname");  // userlist.jsp中根据名字查询
         String temp = req.getParameter("queryUserRole");   // userlist.jsp中根据用户的角色查询
         String pageIndex = req.getParameter("pageIndex");  // userlist.jsp中的页面数
+
 
         int queryUserRole = 0; // 角色默认为0,即管理员
 
@@ -72,7 +74,7 @@ public class UserServlet extends HttpServlet {
         if(queryUserName == null){
             queryUserName = "";
         }
-        //下拉框时不能为空,即角色选择一个系统管理员经理普通员工
+        //下拉框时不能为空,即角色选择一个系统管理员,经理,普通员工
         if(temp != null && !temp.equals("")){
             queryUserRole = Integer.parseInt(temp);
         }
@@ -92,21 +94,23 @@ public class UserServlet extends HttpServlet {
         pages.setPageSize(pageSize);
         pages.setTotalCount(totalCount);
 
+        // 总共有多少页
         int totalPageCount = pages.getTotalPageCount();
 
-        //控制首页和尾页,
+        //控制首页和尾页
         if(currentPageNo < 1){
+            // 第一页
             currentPageNo = 1;
         }else if(currentPageNo > totalPageCount){
+            // 最后一页
             currentPageNo = totalPageCount;
         }
 
-
+        //-------------------------以上都在准备数据-------下面进行数据展示-----------
         // 获取用户列表展示
         List<User> userList = null;
         userList = userService.getUserList(queryUserName,queryUserRole,currentPageNo, pageSize);
         req.setAttribute("userList", userList);
-
         // 获得角色列表
         List<Role> roleList = null;
         RoleService roleService = new RoleServiceImpl();

@@ -7,13 +7,13 @@ import com.kuang.dao.role.RoleDapImpl;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoleServiceImpl implements RoleService {
 
     // 引入Dao
     private RoleDao roleDao;
-
     public RoleServiceImpl(){
         roleDao =new RoleDapImpl();
     }
@@ -27,9 +27,20 @@ public class RoleServiceImpl implements RoleService {
             roleList = roleDao.getRoleList(connection);
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             BaseDao.closeResource(connection, null, null);
         }
         return roleList;
+    }
+
+    // 测试getRoleList正常
+    @Test
+    public void test() {
+        RoleServiceImpl roleService = new RoleServiceImpl();
+        List<Role> roles = new ArrayList<Role>();
+        roles = getRoleList();
+        for (Role role : roles) {
+            System.out.println(role.getRoleName());
+        }
     }
 }

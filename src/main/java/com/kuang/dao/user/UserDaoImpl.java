@@ -80,22 +80,22 @@ public class UserDaoImpl implements UserDao{
 			StringBuffer sql = new StringBuffer();
 			sql.append("select count(1) as count from smbms_user u,smbms_role r where u.userRole = r.id");
 			ArrayList<Object> list = new ArrayList<Object>();
-			if (!StringUtils.isNullOrEmpty(userName)){
+			if (!StringUtils.isNullOrEmpty(userName)) {
 				sql.append(" and u.userName like ?");
-				list.add("%"+userName+"%");// index 0
+				list.add("%" + userName + "%");// index 0
 			}
-			if (userRole > 0){
+			if (userRole > 0) {
 				sql.append(" and u.userRole = ?");
 				list.add(userRole);// index 1
 			}
 			Object[] params = list.toArray();
-
+			System.out.println(sql.toString());
 			rs = BaseDao.execute(connection, pstm, rs, sql.toString(), params);
-			if (rs.next()){
+			if (rs.next()) {
 				// 从结果集中获取数量
 				count = rs.getInt("count");
 			}
-			BaseDao.closeResource(null, pstm,rs);
+			BaseDao.closeResource(null, pstm, rs);
 		}
 		return count;
 	}
@@ -130,7 +130,6 @@ public class UserDaoImpl implements UserDao{
 			list.add(pageSize);
 
 			Object[] params = list.toArray();
-			System.out.println("sql ----> " + sql.toString());
 			rs = BaseDao.execute(connection, pstm, rs, sql.toString(), params);
 			while(rs.next()){
 				User _user = new User();

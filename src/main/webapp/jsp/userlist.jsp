@@ -7,7 +7,7 @@
                 <span>用户管理页面</span>
             </div>
             <div class="search">
-<%--				用户类型选择这块--%>
+<%--				最上面---用户名与用户类型选择这块--%>
            		<form method="get" action="${pageContext.request.contextPath }/jsp/user.do">
 					<input name="method" value="query" class="input-text" type="hidden">
 					 <span>用户名：</span>
@@ -28,9 +28,9 @@
 					 <input	value="查 询" type="submit" id="searchbutton">
 					 <a href="${pageContext.request.contextPath}/jsp/useradd.jsp" >添加用户</a>
 				</form>
-            </div>
-            <!--用户列表-->
-            <table class="providerTable" cellpadding="0" cellspacing="0">
+			</div>
+			<!--中间---用户列表-->
+			<table class="providerTable" cellpadding="0" cellspacing="0">
                 <tr class="firstTr">
                     <th width="10%">用户编码</th>
                     <th width="20%">用户名称</th>
@@ -40,13 +40,14 @@
                     <th width="10%">用户角色</th>
                     <th width="30%">操作</th>
                 </tr>
-                   <c:forEach var="user" items="${userList }" varStatus="status">
+				<c:forEach var="user" items="${userList}" varStatus="status">
 					<tr>
 						<td>
-						<span>${user.userCode }</span>
+							<span>${user.userCode }</span>
 						</td>
+
 						<td>
-						<span>${user.userName }</span>
+							<span>${user.getUserName("userName") }</span>
 						</td>
 						<td>
 							<span>
@@ -55,22 +56,30 @@
 							</span>
 						</td>
 						<td>
-						<span>${user.age}</span>
+							<span>${user.age}</span>
 						</td>
 						<td>
-						<span>${user.phone}</span>
+							<span>${user.phone}</span>
 						</td>
 						<td>
 							<span>${user.userRoleName}</span>
 						</td>
 						<td>
-						<span><a class="viewUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
-						<span><a class="modifyUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
-						<span><a class="deleteUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
+							<span><a class="viewUser" href="javascript:;"
+									 userid=${user.id } username=${user.getUserName("userName") }><img
+									src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
+							<span><a class="modifyUser" href="javascript:;"
+									 userid=${user.id } username=${user.getUserName("userName") }><img
+									src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改"
+									title="修改"/></a></span>
+							<span><a class="deleteUser" href="javascript:;"
+									 userid=${user.id } username=${user.getUserName("userName") }><img
+									src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
+			<%--			最下面的---分页的实现--%>
 			<input type="hidden" id="totalPageCount" value="${totalPageCount}"/>
 		  	<c:import url="rollpage.jsp">
 	          	<c:param name="totalCount" value="${totalCount}"/>

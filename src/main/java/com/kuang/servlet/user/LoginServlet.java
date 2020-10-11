@@ -35,7 +35,6 @@ public class LoginServlet extends HttpServlet {
 
 
 			resp.sendRedirect("jsp/frame.jsp");
-			System.out.println("进入frame");
 		}else{
 			//页面跳转（login.jsp）带出提示信息--转发
 			req.setAttribute("error", "用户名或密码不正确");

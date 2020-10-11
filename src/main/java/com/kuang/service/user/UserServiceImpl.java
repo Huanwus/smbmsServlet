@@ -7,6 +7,8 @@ import com.kuang.pojo.User;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserServiceImpl implements UserService{
@@ -71,20 +73,39 @@ public class UserServiceImpl implements UserService{
     public List<User> getUserList(String queryUserName, int queryUserRole, int currentPageNo, int pageSize) {
         Connection connection = null;
         List<User> userList = null;
-        System.out.println("queryUserName ---- > " + queryUserName);
-        System.out.println("queryUserRole ---- > " + queryUserRole);
-        System.out.println("currentPageNo ---- > " + currentPageNo);
-        System.out.println("pageSize ---- > " + pageSize);
         try {
             connection = BaseDao.getConnection();
             userList = userDao.getUserList(connection, queryUserName,queryUserRole,currentPageNo,pageSize);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }finally{
+        } finally {
             BaseDao.closeResource(connection, null, null);
         }
         return userList;
+    }
+
+
+    // 测试getUserList正常
+    @Test
+    public void test() {
+        UserServiceImpl userService = new UserServiceImpl();
+        List<User> users = new ArrayList<User>();
+        // 从第一页开始
+
+        users = userService.getUserList(null, 0, 1, 5);
+        for (User i : users) {
+            System.out.println(i.getUserName("userName"));
+        }
+    }
+
+
+    // 测试getUserCount正常
+    @Test
+    public void test2() {
+        UserServiceImpl userService = new UserServiceImpl();
+        int userCount = userService.getUserCount(null, 3);
+        System.out.println(userCount);
     }
 
 
